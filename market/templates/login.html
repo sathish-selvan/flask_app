@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+<div class="container">
+    <form method="POST" class="form-signin" style="color:white">
+        {{ form.hidden_tag() }}
+        <img class="mb-4" src="https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/nityananda_660_041219101039.jpg" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Sign in your Account
+        </h1>
+        {{ form.username.label() }}<br>
+        {{ form.username(class="form_control", placeholder="User Name") }}<br>
+
+        {{ form.password.label() }}<br>
+        {{ form.password(class="form_control", placeholder="Password") }}<br>
+        <br>
+        <div class="checkbox mb-3">
+            <h6>Do not have an account?</h6>
+            <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
+        </div>
+        {{ form.submit(class= "btn btn-sm  btn-primary") }}
+
+    </form>
+</div>
+</body>
+{% endblock %}
+
+
+

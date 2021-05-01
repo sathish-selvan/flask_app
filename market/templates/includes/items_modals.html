@@ -1,0 +1,61 @@
+<style>
+  .modal-content{
+  background-color: #212121;
+  }
+</style>
+<!-- Modal -->
+<div class="modal fade" id="Model-MoreInfo-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">
+          {{ item.name }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+        {{ item.description }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--purchase confirm-->
+
+<div class="modal fade" id="Model-PurchaseConfirm-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >
+          {{ item.name }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+
+        <form method="POST">
+          {{ purchase_form.hidden_tag() }}
+
+          <h4 class="text-center">
+            Are you sure you want to buy {{ item.name }} for {{ item.price }}$ ?
+          </h4>
+          <input id="purchased-item" name="purchased-item" type="hidden" value="{{ item.name }}">
+
+          {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

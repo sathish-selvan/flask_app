@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+<div class="container">
+    <form method="POST" class="form-register" style="color:white">
+        {{ form.hidden_tag() }}
+        <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Paramahamsa_Nithyananda.jpg" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Please Create your Account
+        </h1>
+        {{ form.username.label() }}<br>
+        {{ form.username(class="form_control", placeholder="User Name") }}<br>
+
+        {{ form.email_address.label() }}<br>
+        {{ form.email_address(class="form_control", placeholder="Email") }}<br>
+
+        {{ form.password1.label() }}<br>
+        {{ form.password1(class="form_control", placeholder="Enter Password") }}<br>
+
+        {{ form.password2.label() }}<br>
+        {{ form.password2(class="form_control", placeholder="Confirm Password") }}<br>
+        <br>
+
+
+        <div class="checkbox mb-3">
+            <h6>Already have an account?</h6>
+            <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Sign In</a>
+        </div>
+
+        {{ form.submit(class= "btn btn-sm  btn-primary") }}
+    </form>
+</div>
+</body>
+{% endblock %}
